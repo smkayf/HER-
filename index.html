@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Floating hearts */
+body::before {
+  content: "❤️ 💕 💖 💘 💗";
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.15;
+  animation: float 12s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-100vh); }
+}
+
+/* Card */
+.card {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255,105,135,0.4);
+  animation: fade 1.5s ease;
+  display: none;
+}
+
+.card.active {
+  display: block;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.text-box {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  width: 200px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 10px 25px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  background: #ff5f8f;
+  color: white;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff2f70;
+  box-shadow: 0 0 15px #ff5f8f;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="card active" id="page1">
+  <h1>Welcome ❤️</h1>
+  <div class="text-box">your text</div>
+  <input type="password" id="pass1" placeholder="Enter password">
+  <br>
+  <button onclick="unlock(1)">Unlock</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="card" id="page2">
+  <h1>Just a little more 💕</h1>
+  <div class="text-box">your text</div>
+  <input type="password" id="pass2" placeholder="Enter password">
+  <br>
+  <button onclick="unlock(2)">Unlock</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="card" id="page3">
+  <h1>❤️</h1>
+  <div class="text-box">your text</div>
+</div>
+
+<script>
+const PASSWORD = "1234";
+
+function unlock(page) {
+  const input = document.getElementById("pass" + page).value;
+  if (input === PASSWORD) {
+    document.getElementById("page" + page).classList.remove("active");
+    document.getElementById("page" + (page + 1)).classList.add("active");
+  } else {
+    alert("Wrong password 💔");
+  }
+}
+</script>
+
+</body>
+</html>
