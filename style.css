@@ -1,0 +1,48 @@
+/* General Reset */
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Arial', sans-serif; }
+body { line-height: 1.6; color: #333; }
+
+/* HERO */
+.hero {
+  background: url('images/hero.jpg') center/cover no-repeat;
+  height: 90vh; display: flex; justify-content: center; align-items: center;
+  color: #fff; text-align: center;
+}
+.hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+.hero .btn {
+  text-decoration: none; background: #b5835a; color: #fff;
+  padding: 12px 25px; margin: 5px; border-radius: 5px;
+  transition: 0.3s;
+}
+.hero .btn:hover { background: #8c6239; }
+
+/* Sections */
+.section { padding: 60px 20px; text-align: center; }
+.section h2 { font-size: 2rem; margin-bottom: 20px; color: #8c6239; }
+
+/* Services & Cuisine */
+ul { list-style: none; }
+ul li { padding: 10px 0; }
+
+/* Cuisine Grid */
+.cuisine-grid { display: flex; justify-content:center; gap:20px; flex-wrap:wrap; }
+.cuisine-item { background:#b5835a; color:#fff; padding:20px; border-radius:10px; width:150px; }
+
+/* Gallery */
+.gallery-grid { display: flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+.gallery-grid img { width: 300px; border-radius:10px; }
+
+/* Map */
+.map-container { margin-top:20px; }
+
+/* Footer */
+footer { background:#333; color:#fff; padding:20px; text-align:center; }
+footer .social a { color:#fff; text-decoration:none; margin:0 5px; }
+footer .social a:hover { text-decoration:underline; }
+
+/* Responsive */
+@media(max-width:768px){
+  .hero h1{ font-size:2rem; }
+  .cuisine-grid, .gallery-grid{ flex-direction:column; align-items:center; }
+  .cuisine-item, .gallery-grid img{ width:80%; }
+}
